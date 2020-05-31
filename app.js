@@ -7,6 +7,12 @@ const port = "3000";
 
 // renderメソッドの拡張子が必要なくなる
 app.set("view engine", "ejs");
+// 静的ファイルの読み込み
+app.use(express.static('public'));
+
+// ボディーパーサー
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // サーバーを起動する部分
 const server = app.listen(port, () => {
@@ -21,6 +27,7 @@ const server = app.listen(port, () => {
 		password: 'root',
 		database: 'X8'
 	});
+});
 
 	// // コネクション接続
 	// con.connect(function (err) {
@@ -34,19 +41,18 @@ const server = app.listen(port, () => {
 	// 	console.log(result);
 	// });
 
-	// HTTPリクエストを受け取る部分
-	app.get('/', (req, res) => {
-		res.render('index',
-		{
-			title:' サンプルページ',
-			btnName: '登録'
-		})
-		// const sql = "select * from monster"
-		// con.query(sql, function (err, result, fields) {
-		// 	if (err) throw err;
-		// 	res.send(result);
-		// });
-	});
+// HTTPリクエストを受け取る部分
+app.get('/', (req, res) => {
+	res.render('index',
+	{
+		title:' サンプルページ',
+		btnName: '登録!'
+	})
+	// const sql = "select * from monster"
+	// con.query(sql, function (err, result, fields) {
+	// 	if (err) throw err;
+	// 	res.send(result);
+	// });
 });
 
 // // view engine setup
