@@ -3,12 +3,24 @@
   <head>
     <meta charset="utf-8">
     <title><%= title %></title>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"></script>
+      
     <link rel='stylesheet' href='stylesheets/style.css'/>
+    <link rel='stylesheet' href='stylesheets/registerModal.css'/>
   </head>
   <body>
-    <form action="/" method="POST">
-      <input type="text" name="name">名前
-      <button class="btn_submit" type="submit"><%= btnName %></button>
-    </form>
+    <div class="mainHaeader">
+      <div class="title">
+        育成ポケモン
+      </div>
+    </div>
+    <div class="btnArea">
+      <button class="btn btnList">一覧</button>
+      <button class="btn btnRegister" id="btn_register">登録</button>
+    </div>
+    <% include RegisterModal %>
+    <script type="text/javascript" src="javascripts/Register.js"></script>
   </body>
 </html>

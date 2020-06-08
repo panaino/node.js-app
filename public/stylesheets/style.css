@@ -1,3 +1,47 @@
-.btn_submit {
-  color: blue;
+body {
+  margin: 0;
+  font-family: 'Hiragino Kaku Gothic Pro','ヒラギノ角ゴ Pro W3','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+}
+
+.mainHaeader {
+  height: 300px;
+  width: 100%;
+  font-size: 4em;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.btnArea {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.btnList {
+  margin-right: 5%;
+}
+
+/* ボタンに関するデザイン */
+.btn {
+  height: 35px;
+  width: 115px;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #668ad8;/*ボタン色*/
+  color: #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+}
+.btn {
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);/*下に動く*/
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*影を小さく*/
+  border-bottom: none;
 }
