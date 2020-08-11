@@ -1,3 +1,4 @@
+/* モーダル全体に関するスタイル */
 .modal_full {
     display: none;
     height: 100vh;
@@ -16,10 +17,43 @@
 .register_content {
     background: #fff;
     left: 50%;
-    padding: 40px;
+    padding: 10px;
     position: absolute;
     top: 50%;
     transform: translate(-50%,-50%);
-    width: 65%;
-    height: 40%;
+    width: 40%;
+    height: 45%;
+}
+
+/* 各入力フォームに関するスタイル */
+.row_1 {
+    margin: 15px 5px 5px;
+}
+.row_2 {
+    margin: 15px 5px 5px;
+}
+.row_3 {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 5px 5px;
+}
+.row_2_list {
+    display: block;
+    height: 30px;
+}
+.row_3_item {
+    margin: 10px 5px 5px;
+}
+.row_3_input {
+    width: 60px;
+}
+
+/* 汎用的なデザインのルール */
+.text_area {
+    display: block;
+    padding: 10px 15px; /*ボックスを大きくする*/
+    font-size: 16px;
+    border-radius: 3px; /*ボックス角の丸み*/
+    border: 2px solid #ddd; /*枠線*/
+    box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
 }

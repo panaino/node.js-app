@@ -5,6 +5,17 @@ const app = express();
 const ejs = require('ejs');
 const port = "3000";
 
+const mysql = require('mysql');
+
+// DB接続情報
+const con = mysql.createConnection({
+	multipleStatements: true,
+	host: 'localhost',
+	user: 'root',
+	password: 'rootpass',
+	database: 'Node_Poke_Project'
+});
+
 // renderメソッドの拡張子が必要なくなる
 app.set("view engine", "ejs");
 // 静的ファイルの読み込み
@@ -18,41 +29,24 @@ app.use(express.urlencoded({ extended: true }));
 const server = app.listen(port, () => {
 	console.log('app listening on port:', server.address().port);
 
-	const mysql = require('mysql');
-
-	// DB接続情報
-	const con = mysql.createConnection({
-		host: 'localhost',
-		user: 'root',
-		password: 'root',
-		database: 'X8'
+	// DB接続
+	con.connect(function (err) {
+		if (err) throw err;
+		console.log('接続成功！');
 	});
 });
 
-	// // コネクション接続
-	// con.connect(function (err) {
-	// 	if (err) throw err;
-	// 	console.log('接続成功！');
-	// });
-
-	// const sql = "INSERT INTO monster(name) VALUES(?)";
-	// con.query(sql, ['ゼニガメ'], (err, result, fields) => {
-	// 	if(err) throw err;
-	// 	console.log(result);
-	// });
-
 // HTTPリクエストを受け取る部分
 app.get('/', (req, res) => {
-	res.render('index',
-	{
-		title:' サンプルページ',
-		btnName: '登録!'
-	})
-	// const sql = "select * from monster"
-	// con.query(sql, function (err, result, fields) {
-	// 	if (err) throw err;
-	// 	res.send(result);
-	// });
+	con.query('SELECT * FROM TB_PESONRALITY;SELECT * FROM TB_PARAMETER_INFO ORDER BY DISP_NO asc'
+	, function (err, results, fields) {
+		if (err) throw err;
+		res.render('index',
+		{
+			pesonrality_info: results[0],
+			parameter_info: results[1]
+		})
+	});
 });
 
 // // view engine setup
