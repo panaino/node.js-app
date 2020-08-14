@@ -37,13 +37,14 @@ const server = app.listen(port, () => {
 
 // HTTPリクエストを受け取る部分
 app.get('/', (req, res) => {
-	con.query('SELECT * FROM TB_PESONRALITY;SELECT * FROM TB_PARAMETER_INFO ORDER BY DISP_NO asc'
+	con.query('SELECT * FROM TB_PESONRALITY;SELECT * FROM TB_PARAMETER_INFO ORDER BY DISP_NO asc;SELECT * FROM TB_MONSTER_INFO'
 	, function (err, results, fields) {
 		if (err) throw err;
 		res.render('index',
 		{
 			pesonrality_info: results[0],
-			parameter_info: results[1]
+			parameter_info: results[1],
+			monster_info: results[2]
 		})
 	});
 });

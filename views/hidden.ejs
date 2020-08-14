@@ -1,1 +1,21 @@
-<input type="hidden" id="hidden_param" name="hidden_param" value="<%= JSON.stringify(parameter_info) %>">
+<%
+    let array = [];
+
+    monster_info.forEach(value => {
+        let obj = {
+            "No": value.No,
+            "Name": value.NAME,
+            "ABILITY": value.ABILITY,
+            "H": value.H,
+            "A": value.A,
+            "B": value.B,
+            "C": value.C,
+            "D": value.D,
+            "S": value.S,
+        };
+        array.push(obj);
+    }); 
+
+    let jsonObj = JSON.stringify(array);
+%>
+<input type="hidden" id="monster_info" value="<%= jsonObj %>">
