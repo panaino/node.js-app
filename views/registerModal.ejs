@@ -3,35 +3,38 @@
     <body>
         <div class="modal_full">
             <div class="modal_bg"></div>
-            <div class="register_content">
-                <div class="row_1">
-                    <label>名前
-                        <input type="text" class="text_area" maxlength="5">
-                    </label>
-                </div>
-                <div class="row_2">
-                    <label>性格
-                        <select class="row_2_list">
-                            <option value="" selected>選択してください</option>
-                            <% pesonrality_info.forEach(function(value) { %>
-                                <option val="<%= value.PESONRALITY %>"><%= value.PESONRALITY %></option>
-                                <% }); %>
-                            </select>
-                    </label>
-                </div>
-                <div class="row_3">
-                    <% parameter_info.forEach(function(param){ %>
-                        <div class="row_3_item">
-                            <label>
-                                <%= param.STATUS_NAME %>
-                                <input class="row_3_input text_area" type="text" placeholder="0" maxlength="3">
+                <form action="/register" method="POST">
+                    <div class="register_content">
+                        <div class="row_1">
+                            <label>名前
+                                <input id="poke_name" type="text" class="text_area" name="NAME" maxlength="5">
                             </label>
                         </div>
-                    <% }); %>
-                </div>
-                <div id="row_4">
-                </div>
-            </div>
+                        <div class="row_2">
+                            <label>性格
+                                <select class="row_2_list" name="PESONRALITY">
+                                    <option value="" selected>選択してください</option>
+                                    <% pesonrality_info.forEach(function(value) { %>
+                                        <option val="<%= value.PESONRALITY %>"><%= value.PESONRALITY %></option>
+                                        <% }); %>
+                                    </select>
+                            </label>
+                        </div>
+                        <div class="row_3">
+                            <% parameter_info.forEach(function(param){ %>
+                                <div class="row_3_item">
+                                    <label>
+                                        <%= param.STATUS_NAME %>
+                                        <input type="text" id="<%= 'row3Item' + param.STATUS %>" class="row_3_input text_area" name="<%= param.STATUS %>" placeholder="0" maxlength="3">
+                                    </label>
+                                </div>
+                            <% }); %>
+                        </div>
+                        <div class="row_4">
+                            <input class="btn" type="submit" value="登録">
+                        </div>
+                    </div>
+                </form>
         </div>
     </body>
 </html>

@@ -1,9 +1,9 @@
 /* モーダル全体に関するスタイル */
 .modal_full {
     display: none;
-    height: 100vh;
     position: fixed;
     top: 0;
+    height: 100vh;
     width: 100%;
 }
 
@@ -22,20 +22,20 @@
     top: 50%;
     transform: translate(-50%,-50%);
     width: 40%;
-    height: 45%;
+    height: 330px;
 }
 
 /* 各入力フォームに関するスタイル */
 .row_1 {
-    margin: 15px 5px 5px;
+    height: 25%;
 }
 .row_2 {
-    margin: 15px 5px 5px;
+    height: 25%;
 }
 .row_3 {
     display: flex;
+    height: 25%;
     justify-content: space-between;
-    margin: 15px 5px 5px;
 }
 .row_2_list {
     display: block;
@@ -46,6 +46,11 @@
 }
 .row_3_input {
     width: 60px;
+}
+.row_4 {
+    display: flex;
+    align-items: center;
+    height: 25%;
 }
 
 /* 汎用的なデザインのルール */
